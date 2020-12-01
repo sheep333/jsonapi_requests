@@ -6,7 +6,7 @@ from urllib import request
 import requests
 from bs4 import BeautifulSoup
 
-BASE_DIR = os.getenv("BASE_DIR", './output_1130/')
+BASE_DIR = os.getenv("BASE_DIR", './output_with_mentenance/')
 RAW_JSON_DIR = os.getenv("RAW_JSON_DIR", "json_outputs/")
 DECODE_JSON_DIR = os.getenv("DECODE_JSON_DIR", "decode_json_outputs/")
 JSONLINES_DIR = os.getenv("JSONLINES_DIR", "jsonl_outputs/")
@@ -28,7 +28,7 @@ def exec():
         'pass': PASS,
         'form_build_id': soup.find('input', attrs={'name': 'form_build_id'}).get('value'),
         'form_id': soup.find('input', attrs={'name': 'form_id'}).get('value'),
-        'op': soup.find('input', attrs={'name': 'form_id'}).get('value'),
+        'op': soup.find('input', attrs={'name': 'op'}).get('value'),
     }
 
     session = requests.Session()
